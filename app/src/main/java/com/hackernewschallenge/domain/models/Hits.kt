@@ -7,9 +7,10 @@ data class Hits(
     @SerializedName("story_id") val storyId: Long,
     val title: String?,
     val author: String?,
-    val createdAt: String?,
+    @SerializedName("created_at") val createdAt: String?,
     @SerializedName("story_title") val storyTitle: String?,
-    val storyUrl: String?,
+    @SerializedName ("story_url") val storyURL: String?,
+    val url: String?,
     val isDeleted: Boolean = false
 )
 
@@ -20,7 +21,8 @@ fun Hits.toDomainModel(): Hits {
         author = this.author,
         createdAt = this.createdAt,
         storyTitle = this.storyTitle ?: "No story title",
-        storyUrl = this.storyUrl
+        storyURL = this.storyURL ?: this.url,
+        url = this.storyURL ?: this.url,
     )
 }
 
@@ -31,6 +33,7 @@ fun Hits.toEntity(): ArticlesEntity {
         author = this.author,
         createdAt = this.createdAt,
         isDeleted = false,
-        storyUrl = this.storyUrl // Default value
+        storyURL = this.storyURL ?: this.url,
+        url = this.storyURL ?: this.url,
     )
 }

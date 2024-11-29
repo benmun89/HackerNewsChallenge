@@ -10,8 +10,9 @@ data class ArticlesEntity(
     val title: String?,
     val author: String?,
     val createdAt: String?,
-    val storyUrl: String?,
-    val isDeleted: Boolean = false
+    val storyURL: String?,
+    val isDeleted: Boolean = false,
+    val url: String?
 )
 
 fun ArticlesEntity.toDomainModel(): Hits {
@@ -21,6 +22,7 @@ fun ArticlesEntity.toDomainModel(): Hits {
         author = this.author ?: "Unknown author",
         createdAt = this.createdAt ?: "Unknown time",
         storyTitle = this.title ?: "No story title",
-        storyUrl = null
+        storyURL = this.storyURL,
+        url = this.url
     )
 }
