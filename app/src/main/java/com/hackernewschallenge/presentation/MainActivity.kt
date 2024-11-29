@@ -79,7 +79,7 @@ fun PostList(
     SwipeRefresh(
         state = SwipeRefreshState(isRefreshing),
         onRefresh = {
-//            viewModel.refreshNews()
+            viewModel.refreshNews()
         }
     ) {
         Box(
@@ -131,7 +131,7 @@ fun PostList(
                             SwipeToDismissItem(
                                 newsItem = post,
                                 onSwipeToDelete = { postToRemove ->
-//                                    viewModel.removeNewsItem(postToRemove)
+                                    viewModel.removeNewsItem(postToRemove)
                                 }
                             )
                             HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))

@@ -1,6 +1,7 @@
 package com.hackernewschallenge.domain.models
 
 import com.google.gson.annotations.SerializedName
+import com.hackernewschallenge.data.local.entities.ArticlesEntity
 
 data class Hits(
     @SerializedName("story_id") val storyId: Long,
@@ -20,5 +21,16 @@ fun Hits.toDomainModel(): Hits {
         createdAt = this.createdAt,
         storyTitle = this.storyTitle ?: "No story title",
         storyUrl = this.storyUrl
+    )
+}
+
+fun Hits.toEntity(): ArticlesEntity {
+    return ArticlesEntity(
+        storyId = this.storyId,
+        title = this.title,
+        author = this.author,
+        createdAt = this.createdAt,
+        isDeleted = false,
+        storyUrl = this.storyUrl // Default value
     )
 }

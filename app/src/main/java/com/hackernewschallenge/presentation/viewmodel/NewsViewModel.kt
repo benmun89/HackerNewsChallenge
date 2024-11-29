@@ -45,4 +45,45 @@ class NewsViewModel @Inject constructor(
             }
         }
     }
+
+    fun refreshNews() {
+        viewModelScope.launch(Dispatchers.IO) {
+            _isRefreshing.value = true
+            _hasError.value = false
+
+            try {
+                if (_news.value.isEmpty()) {
+                    val freshNewsFromApi = repository.fetchNews()
+                    repository.insertNews(freshNewsFromApi)
+
+                    val validNews = freshNewsFromApi.filterNot { it.isDeleted }
+
+                    _news.value = validNews
+                } else {
+                    val freshNewsFromDb = repository.fetchNewsFromDb().filterNot { it.isDeleted }
+                    _news.value = freshNewsFromDb
+                }
+
+            } catch (e: Exception) {
+                _hasError.value = true
+                Log.e("NewsViewModel", "Error refreshing news", e)
+            } finally {
+                _isRefreshing.value = false
+            }
+        }
+    }
+
+    fun removeNewsItem(post: Hits) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                repository.removeNewsItem(post)
+
+                val updatedNews = repository.fetchNewsFromDb()
+                _news.value = updatedNews.filterNot { it.isDeleted }
+
+            } catch (e: Exception) {
+                _hasError.value = true
+            }
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package com.hackernewschallenge.di
 
 import com.hackernewschallenge.data.api.NewsApi
+import com.hackernewschallenge.data.local.HitsDao
 import com.hackernewschallenge.data.repository.NewsRepositoryImpl
 import com.hackernewschallenge.domain.repository.NewsRepository
 import com.hackernewschallenge.domain.usecase.FetchNewsUseCase
@@ -27,8 +28,9 @@ object AppModule {
     @Provides
     fun provideNewsRepository(
         api: NewsApi,
+        hitsDao: HitsDao
     ): NewsRepository {
-        return NewsRepositoryImpl(api)
+        return NewsRepositoryImpl(api, hitsDao)
     }
 
     @Provides
