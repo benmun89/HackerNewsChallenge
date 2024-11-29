@@ -74,4 +74,6 @@ dependencies {
     kapt(libs.hilt.compiler)
     implementation (libs.accompanist.swiperefresh)
     implementation (libs.material)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 }
