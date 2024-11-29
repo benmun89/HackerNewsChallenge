@@ -77,12 +77,12 @@ class NewsViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 repository.removeNewsItem(post)
-
                 val updatedNews = repository.fetchNewsFromDb()
                 _news.value = updatedNews.filterNot { it.isDeleted }
-
+                Log.d("NewsViewModel", "Updated news list: ${_news.value}")
             } catch (e: Exception) {
                 _hasError.value = true
+                Log.e("NewsViewModel", "Error removing item", e)
             }
         }
     }
