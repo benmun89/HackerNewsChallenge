@@ -56,8 +56,10 @@ dependencies {
     implementation(libs.androidx.foundation)
     implementation(libs.dagger)
     implementation(libs.hilt)
-
-    testImplementation(libs.junit)
+    implementation (libs.accompanist.swiperefresh)
+    implementation (libs.material)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -66,14 +68,20 @@ dependencies {
 
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    kapt(libs.hilt.compiler)
-    implementation(libs.androidx.hilt.navigation.compose)
 
     api(libs.bundles.retrofit)
 
     kapt(libs.hilt.compiler)
-    implementation (libs.accompanist.swiperefresh)
-    implementation (libs.material)
     kapt(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.ktx)
+
+    testImplementation(libs.junit)
+    testImplementation (libs.mockito.core)
+    testImplementation (libs.mockito.kotlin)
+    testImplementation (libs.kotlinx.coroutines.test)
+    testImplementation (libs.mockito.core)
+    testImplementation (libs.mockito.kotlin.v400)
+    testImplementation (libs.kotlinx.coroutines.test.v170)
+    testImplementation (libs.mockk)
+    testImplementation (libs.kotlinx.coroutines.test.v180)
+    kapt(libs.hilt.compiler)
 }
