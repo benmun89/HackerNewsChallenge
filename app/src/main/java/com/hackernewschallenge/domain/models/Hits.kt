@@ -11,3 +11,14 @@ data class Hits(
     val storyUrl: String?,
     val isDeleted: Boolean = false
 )
+
+fun Hits.toDomainModel(): Hits {
+    return Hits(
+        storyId = this.storyId,
+        title = this.storyTitle ?: this.title,
+        author = this.author,
+        createdAt = this.createdAt,
+        storyTitle = this.storyTitle ?: "No story title",
+        storyUrl = this.storyUrl
+    )
+}
