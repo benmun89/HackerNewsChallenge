@@ -1,4 +1,4 @@
-package com.hackernewschallenge.ui.theme
+package com.hackernewschallenge.presentation.theme
 
 import android.app.Activity
 import android.os.Build

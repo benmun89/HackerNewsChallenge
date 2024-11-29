@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HackerNewsChallenge</string>
+    <string name="no_items">No news available.</string>
+    <string name="swipe_refresh">Swipe to refresh.</string>
 </resources>

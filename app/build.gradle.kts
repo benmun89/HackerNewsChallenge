@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -52,6 +54,8 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.androidx.runtime)
     implementation(libs.androidx.foundation)
+    implementation(libs.dagger)
+    implementation(libs.hilt)
 
     testImplementation(libs.junit)
 
@@ -62,6 +66,12 @@ dependencies {
 
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    kapt(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     api(libs.bundles.retrofit)
+
+    kapt(libs.hilt.compiler)
+    implementation (libs.accompanist.swiperefresh)
+    implementation (libs.material)
 }

@@ -1,4 +1,4 @@
-package com.hackernewschallenge.ui.theme
+package com.hackernewschallenge.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
