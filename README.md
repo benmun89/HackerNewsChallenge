@@ -4,7 +4,7 @@ The Hacker News Challenge is a mobile application built using Kotlin and Jetpack
 
 This project follows a clean architecture approach and utilizes MVVM (Model-View-ViewModel) with Kotlin Coroutines for managing asynchronous operations. The app also leverages Dagger Hilt for dependency injection and Room for local database storage.
 
-# Architecture
+# Features
 Fetches and displays news articles from Hacker News.
 Supports pull-to-refresh to fetch fresh news.
 Allows users to remove articles from the feed.
