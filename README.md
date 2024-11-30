@@ -4,6 +4,7 @@ The Hacker News Challenge is a mobile application built using Kotlin and Jetpack
 
 This project follows a clean architecture approach and utilizes MVVM (Model-View-ViewModel) with Kotlin Coroutines for managing asynchronous operations. The app also leverages Dagger Hilt for dependency injection and Room for local database storage.
 
+
 # Features
 Fetches and displays news articles from Hacker News.
 
@@ -50,5 +51,7 @@ JUnit and Mockk (for unit testing)
 # Setup
 # Prerequisites
 Android Studio Bumblebee or newer.
+
 Java 11 or newer.
+
 Internet connection for fetching data from the API.
