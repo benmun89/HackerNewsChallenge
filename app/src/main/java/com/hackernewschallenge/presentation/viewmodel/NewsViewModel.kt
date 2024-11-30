@@ -27,7 +27,6 @@ class NewsViewModel @Inject constructor(
     val isRefreshing: StateFlow<Boolean> = _isRefreshing
 
     private val _hasError = MutableStateFlow(false)
-    val hasError: StateFlow<Boolean> = _hasError
 
     fun loadNews() {
         viewModelScope.launch(Dispatchers.IO) {

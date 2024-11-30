@@ -25,9 +25,11 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavController
+import com.hackernewschallenge.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -62,7 +64,7 @@ fun WebViewScreen(
 
     if (!isInternetAvailable.value) {
         Text(
-            text = "No internet connection. Please check your connection.",
+            text = stringResource(R.string.no_internet),
             modifier = Modifier
                 .fillMaxSize()
                 .wrapContentSize(Alignment.Center)

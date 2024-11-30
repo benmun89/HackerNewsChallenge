@@ -46,6 +46,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -56,6 +57,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshState
+import com.hackernewschallenge.R
 import com.hackernewschallenge.domain.models.Hits
 import com.hackernewschallenge.presentation.theme.HackerNewsChallengeTheme
 import com.hackernewschallenge.presentation.viewmodel.NewsViewModel
@@ -136,7 +138,7 @@ fun PostList(
 
     LaunchedEffect(newsList) {
         if (newsList.isEmpty()) {
-            viewModel.loadNews() // Only load if the list is empty
+            viewModel.loadNews()
         }
     }
 
@@ -167,14 +169,14 @@ fun PostList(
                                     verticalArrangement = Arrangement.Center
                                 ) {
                                     Text(
-                                        text = "No items",
+                                        text = stringResource(R.string.no_items),
                                         color = Color.Gray,
                                         style = MaterialTheme.typography.bodyLarge,
                                         modifier = Modifier.align(Alignment.CenterHorizontally)
                                     )
                                     Spacer(modifier = Modifier.height(8.dp))
                                     Text(
-                                        text = "Swipe to refresh",
+                                        text = stringResource(R.string.swipe_refresh),
                                         color = Color.Gray,
                                         style = MaterialTheme.typography.bodySmall
                                     )
@@ -187,7 +189,7 @@ fun PostList(
                             .distinctBy { it.storyId ?: "${it.title}-${it.author}" }
 
                         LazyColumn(
-                            state = listState, // Use remembered scroll state
+                            state = listState,
                             modifier = Modifier.padding(16.dp)
                         ) {
                             items(
@@ -203,7 +205,7 @@ fun PostList(
                                         } else {
                                             Toast.makeText(
                                                 context,
-                                                "No internet connection. Please check your connection.",
+                                                context.getString(R.string.no_internet),
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                         }
@@ -243,7 +245,7 @@ fun SwipeToDismissItem(
                     .padding(horizontal = 16.dp),
                 contentAlignment = Alignment.CenterEnd
             ) {
-                Text(text = "Delete", color = Color.White)
+                Text(text = stringResource(R.string.delete), color = Color.White)
             }
         }, dismissContent = {
             PostContent(title = newsItem.title ?: "No Title",
@@ -256,7 +258,7 @@ fun SwipeToDismissItem(
 
 @Composable
 fun PostContent(
-    title: String, subtitle: String, createdAt: String, onClick: () -> Unit // Handle post click
+    title: String, subtitle: String, createdAt: String, onClick: () -> Unit
 ) {
     val relativeTime = getRelativeTime(createdAt)
 

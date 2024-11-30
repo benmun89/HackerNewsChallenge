@@ -3,4 +3,5 @@
     <string name="no_items">No news available.</string>
     <string name="swipe_refresh">Swipe to refresh.</string>
     <string name="no_internet">No internet connection. Please check your connection.</string>
+    <string name="delete">Delete</string>
 </resources>

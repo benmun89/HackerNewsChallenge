@@ -7,5 +7,4 @@ interface NewsRepository {
         suspend fun fetchNewsFromDb(): List<Hits>
         suspend fun removeNewsItem(post: Hits)
         suspend fun insertNews(newsToInsert: List<Hits>)
-
 }

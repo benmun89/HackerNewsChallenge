@@ -2,8 +2,6 @@ package com.hackernewschallenge.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.migration.Migration
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.hackernewschallenge.data.local.AppDatabase
 import com.hackernewschallenge.data.local.HitsDao
 import dagger.Module
